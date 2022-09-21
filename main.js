@@ -5,7 +5,7 @@ import { setupCounter } from "./counter.js";
 import { user } from "./data.json";
 import suma from "./suma.ts";
 
-console.log(`Suma de 2 + 3 = ${suma(2, 3)}`);
+// console.log(`Suma de 2 + 3 = ${suma(2, 3)}`);
 
 const modules = import.meta.glob("./modules//*.js");
 
@@ -39,6 +39,7 @@ document.querySelector("#app").innerHTML = `
       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
     </a>
     <h1>Hola Ameth!</h1>
+    <h2>${import.meta.env.VITE_NAME}</h2>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
