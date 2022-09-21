@@ -3,6 +3,9 @@ import btnStyles from "./button.module.css";
 import javascriptLogo from "./javascript.svg";
 import { setupCounter } from "./counter.js";
 import { user } from "./data.json";
+import suma from "./suma.ts";
+
+console.log(`Suma de 2 + 3 = ${suma(2, 3)}`);
 
 const modules = import.meta.glob("./modules//*.js");
 
@@ -10,9 +13,9 @@ const modules = import.meta.glob("./modules//*.js");
 
 for (const path in modules) {
   //Retorna una promesa
-  // modules[path]().then((module) => {
-  //   module.load();
-  // });
+  modules[path]().then((module) => {
+    module.load();
+  });
 
   //Usando async-await
   // async function fetchModule() {
@@ -23,8 +26,8 @@ for (const path in modules) {
   // fetchModule();
 
   //Usando top-level await
-  const module = await modules[path]();
-  module.load();
+  // const module = await modules[path]();
+  // module.load();
 }
 
 document.querySelector("#app").innerHTML = `
