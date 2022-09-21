@@ -20,11 +20,17 @@ export default defineConfig(({ command, mode }) => {
     console.log(`${env.VITE_NAME} en modo de producción activado!`);
     return {
       build: {
-        rollupOptions: {
-          input: {
-            main: resolve(__dirname, "index.html"),
-            help: resolve(__dirname, "help", "help.html"),
-          },
+        // rollupOptions: {
+        //   input: {
+        //     main: resolve(__dirname, "index.html"),
+        //     help: resolve(__dirname, "help", "help.html"),
+        //   },
+        // },
+
+        lib: {
+          entry: resolve(__dirname, "lib", "index.js"),
+          name: "lib-demo",
+          fileName: (format) => `demo.${format}.js`,
         },
       },
     };
